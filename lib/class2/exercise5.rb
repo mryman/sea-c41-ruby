@@ -9,3 +9,8 @@
 #   What's your favorite number?
 #   42
 #   That's ok, I guess, but isn't 43 just a bit better?
+puts 'What\'s your favorite number?'
+favnum = gets
+intfavnum = favnum.to_i
+newnum = (intfavnum + 1).to_s
+puts 'That\'s ok, I guess, but isn\'t ' + newnum + ' just a bit better?'
