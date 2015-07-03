@@ -16,3 +16,24 @@
 #   Go to the store and buy some more, 3 bottles of beer on the wall!
 #
 # TIP: I expect you to use a loop.
+arr = [3, 2, 1, 0]
+lyrics = arr.map do |x|
+  if x >= 3
+    lyric = x.to_s + ' bottles of beer on the wall, ' + x.to_s +
+    ' bottles of beer!'"\n" + 'Take one down, pass it around, ' +
+    (x - 1).to_s + ' bottles of beer on the wall!'
+  elsif x == 2
+    lyric = x.to_s + ' bottles of beer on the wall, ' + x.to_s +
+    ' bottles of beer!'"\n" + 'Take one down, pass it around, ' +
+    (x - 1).to_s + ' bottle of beer on the wall!'
+  elsif x == 1
+    lyric = x.to_s + ' bottle of beer on the wall, ' + x.to_s +
+    ' bottle of beer!'"\n" + 'Take one down, pass it around, ' +
+    'no more bottles of beer on the wall!'
+  else
+    lyric = 'No more bottles of beer on the wall, no more bottles of beer!'"\n" +
+    'Go to the store and buy some more, ' + arr[0].to_s +
+    ' bottles of beer on the wall!'
+  end
+end
+puts lyrics
