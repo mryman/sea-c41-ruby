@@ -35,25 +35,27 @@
 
 phrase = 'Nana: HI SWEETIE! GIVE NANA A KISS!'
 puts phrase
-phrase = gets.chomp
 byecount = 0
 
+loop do
+  phrase = gets.chomp
+  if phrase == 'BYE'
+    byecount += 1
+  else
+    byecount = 0
+  end
+  break if byecount == 3
 
-while phrase != 'BYE'
   if phrase != phrase.upcase
     puts 'Nana: HUH?! SPEAK UP, SWEETIE!'
-    phrase = gets.chomp
-  else
+    byecount = 0
+  elsif (phrase == phrase.upcase) && (phrase != 'BYE')
     year = rand(21) + 1930
     puts 'Nana: NOT SINCE ' + year.to_s + '!'
-    phrase = gets.chomp
+    byecount = 0
+  else
+    puts 'Nana: HOW\'S SCHOOL GOING?'
   end
 end
-byecount = byecount + 1
-while byecount <= 2
-  puts 'Nana: HOW\'S SCHOOL GOING?'
-  byecount = byecount + 1
-  phrase = gets.chomp
 
-end
-  puts 'Nana: BYE SWEETIE!'
+puts 'Nana: BYE SWEETIE!'

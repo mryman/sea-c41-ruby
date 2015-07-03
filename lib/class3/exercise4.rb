@@ -8,8 +8,11 @@
 # divisible by 400 (e.g. 2000).
 #
 # TIP: I expect you to use a loop and a few modulo operations.
-years = [1900..2000]
+years = (1900..2000).to_a
 leapyrs = years.map {|e|
-  ((e%4 == 0) && (e%100 != 0)) || ((e%4 == 0) && (e%100 == 0) && (e%400 == 0))
+  if ((e%4 == 0) && (e%100 != 0)) || ((e%4 == 0) && (e%100 == 0) && (e%400 == 0))
+    e
+  end
   }
 puts leapyrs
+#this is capturing the boolean value of the tests for each year rather than the element itself
