@@ -9,10 +9,10 @@
 #
 # TIP: I expect you to use a loop and a few modulo operations.
 years = (1900..2000).to_a
-leapyrs = years.map {|e|
-  if ((e%4 == 0) && (e%100 != 0)) || ((e%4 == 0) && (e%100 == 0) && (e%400 == 0))
-    e
+years.each do |year|
+  unless (year % 4 != 0)
+    if (year % 100 != 0) || (year % 400 == 0)
+      p year
+    end
   end
-  }
-puts leapyrs
-#this is capturing the boolean value of the tests for each year rather than the element itself
+end
