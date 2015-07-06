@@ -33,7 +33,14 @@
 # TIP #2: Use `return` to preemptively exit the `ask` method.
 
 def ask(question)
-  question # change me
+  puts question # change me
+  loop do |reply|
+    reply = gets.chomp.downcase
+    return 'We can be friends!' if reply == 'y'
+    return 'Get out of my sight!' if reply == 'n'
+    puts 'Try again'
+    puts question
+  end
 end
 
 puts ask('Do you like eating tacos? (y or n)')
