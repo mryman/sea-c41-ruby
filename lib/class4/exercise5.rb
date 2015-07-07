@@ -33,7 +33,26 @@
 
 # rubocop:disable MethodLength
 def modern_roman_numeral(num)
-  num # change me
+  roman_array = {
+    1000 => 'M',
+    900 => 'CM',
+    500 => 'D',
+    400 => 'CD',
+    100 => 'C',
+    90 => 'XC',
+    50 => 'L',
+    40 => 'XL',
+    10 => 'X',
+    9 => 'IX',
+    5 => 'V',
+    4 => 'IV',
+    1 => 'I'
+  }
+
+  roman_array.reduce('') do |result, (ints, roman)|
+    whole, num = num.divmod(ints)
+    result << roman * whole
+  end
 end
 
 input = ARGV[0].to_i
