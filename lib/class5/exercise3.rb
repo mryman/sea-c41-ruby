@@ -28,15 +28,22 @@
 require 'yaml'
 
 def records
-  ['replace me']
+  ['Incentivized methodologies',
+   'Seemless innovation',
+   'Corporate synergy',
+   'Scalable globalization',
+   'Monetized assets']
 end
 
 def database
-  '/replace/me'
+  File.absolute_path(File.dirname(__FILE__) + ('/database.yml'))
 end
 
 def save
-  false # fix me
+  filename = database
+  File.open filename, 'w' do |f|
+    f.write records.to_yaml
+  end
 end
 
 save
