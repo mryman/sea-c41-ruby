@@ -22,15 +22,21 @@
 require 'yaml'
 
 def database
-  '/replace/me'
+  File.absolute_path(File.dirname(__FILE__) + ('/database.yml'))
 end
 
 def load
-  { replace: 'me' }
+  filename = database
+  read_hash = File.read filename
+  YAML.load read_hash
 end
 
 def find(key)
-  key # fix me
+  person = load
+  mystring = key
+  person[mystring]
+  # Tried everything I could think of here.  Can't seem to get
+  # the key from input passed in for fetching from the hash
 end
 
 input = ARGV[0]
