@@ -33,15 +33,12 @@ end
 
 def find(key)
   person = load
-  mystring = key
-  person[mystring]
-  # Tried everything I could think of here.  Can't seem to get
-  # the key from input passed in for fetching from the hash
+  person[key.to_sym]
 end
 
 input = ARGV[0]
 
-abort 'Usage: exercise4.rb KEY' unless input
+abort 'Usage: exercise5.rb KEY' unless input
 
 result = find(input)
 
