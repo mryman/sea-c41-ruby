@@ -27,15 +27,12 @@ def database
 end
 
 def load
-  filename = database
-  read_hash = File.read filename
-  YAML.load read_hash
+  YAML.load_file(database)
 end
 
 def remove(key)
   person = load
-  puts person
-  person.delete(key)
+  person.delete(key.to_sym)
 end
 
 input = ARGV[0]
