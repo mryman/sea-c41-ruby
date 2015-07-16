@@ -26,42 +26,23 @@ def database
 end
 
 def load
-  filename = database
-  read_hash = File.read filename
-  YAML.load read_hash
+  YAML.load_file(database)
 end
 
-def save
+def update(key, value)
+  person = load
+  person = person.merge(key.to_sym => value)
   filename = database
   File.open filename, 'w' do |f|
     f.write person.to_yaml
   end
 end
 
-def find(key)
-  person[key]
-end
-
-def update(key, value)
-  # key + value # fix me
-  result = find(key)
-
-  if result
-    person[key] = value
-  else
-    person.merge(key => value)
-  end
-end
-
-person = load
-puts person
-
 input1, input2 = ARGV
 
-abort 'Usage: exercise5.rb KEY VALUE' unless input1 && input2
+abort 'Usage: exercise6.rb KEY VALUE' unless input1 && input2
 
 update(input1, input2)
-save
 
 puts "Updated 1 key-value pair in #{database}"
 puts ":#{input1} => #{input2.inspect}"
