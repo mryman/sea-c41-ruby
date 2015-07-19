@@ -40,4 +40,5 @@ class OrangeTree
 end
 
 tree = OrangeTree.new
-puts tree.pick!
+puts tree.pick!(33)
+puts tree.pick!(80)
