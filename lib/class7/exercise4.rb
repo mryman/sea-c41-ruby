@@ -47,5 +47,7 @@ class OrangeTree
 end
 
 tree = OrangeTree.new
-puts tree.pick!(33)
-puts tree.pick!(80)
+other_tree = OrangeTree.new(10)
+twin_tree = OrangeTree.new(50)
+puts tree.==(other_tree)
+puts tree.==(twin_tree)
