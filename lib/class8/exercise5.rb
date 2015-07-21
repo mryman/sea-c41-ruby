@@ -14,12 +14,12 @@
 #   DONG!
 
 def grandfather_clock(hour, &block)
-  hour = Time.new.hour
-
   if hour == 0
     hour = 12
   elsif hour >= 13
-    hour = hour - 12
+    hour -= 12
+  else
+    hour
   end
 
   hour.times do
@@ -29,7 +29,7 @@ end
 
 input = ARGV[0]
 
-usage = 'Usage: exercise6.rb 1-12 SOUND'
+usage = 'Usage: exercise5.rb 1-12 SOUND'
 
 abort usage unless input
 abort usage unless input.match(/^\d+$/)
