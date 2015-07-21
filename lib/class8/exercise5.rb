@@ -14,7 +14,17 @@
 #   DONG!
 
 def grandfather_clock(hour, &block)
-  hour && block # fix me
+  hour = Time.new.hour
+
+  if hour == 0
+    hour = 12
+  elsif hour >= 13
+    hour = hour - 12
+  end
+
+  hour.times do
+    block.call
+  end
 end
 
 input = ARGV[0]
